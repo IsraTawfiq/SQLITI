@@ -52,7 +52,7 @@ use Company_SD
 select fname+' '+Lname as [full name]
 from Employee join Dependent on Essn = ssn
 where fname IN (select Dependent_name from Dependent)
---10.Try to update all salaries of employees who work in Project ‘Al Rabwah’ by 30% 
+--10.Try to update all salaries of employees who work in Project â€˜Al Rabwahâ€™ by 30% 
 update employee 
 set Salary=salary*1.3
 from employee join works_for on Essn=ssn join project on Pnumber=Pno
