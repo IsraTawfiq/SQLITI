@@ -58,7 +58,7 @@ Select max (salary)
 From instructor 
 Where salary not in(select max(salary) from instructor)
 --11.Select instructor name and his salary but if there is no salary display
---instructor bonus. ìuse one of coalesce Functionî
+--instructor bonus. ‚Äúuse one of coalesce Function‚Äù
 
 SELECT Ins_Name, COALESCE(CONVERT(VARCHAR(50), salary), Ins_Name)
 FROM Instructor
@@ -78,7 +78,7 @@ FROM student A
 JOIN student B ON A.St_Id = B.St_Id;
 
 --14.Write a query to select the highest two salaries in Each Department for 
---instructors who have salaries. ìusing one of Ranking Functionsî
+--instructors who have salaries. ‚Äúusing one of Ranking Functions‚Äù
 Select salary,Dept_Id
 from (select salary,Dept_Id,
       DENSE_RANK() over (partition by Dept_Id order by salary desc) as DN
@@ -87,7 +87,7 @@ from (select salary,Dept_Id,
 WHERE DN <= 2
 
 --15. Write a query to select a random student from each department. 
---ìusing one of Ranking Functionsî
+--‚Äúusing one of Ranking Functions‚Äù
 
 SELECT 
    St_Id,Dept_Id
@@ -99,7 +99,7 @@ WHERE RN = 1;
 -------
  Use [AdventureWorks2012]
 --1.Display the SalesOrderID, ShipDate of the SalesOrderHearder table (Sales schema)
---to designate SalesOrders that occurred within the period ë7/28/2002í and ë7/29/2014í
+--to designate SalesOrders that occurred within the period ‚Äò7/28/2002‚Äô and ‚Äò7/29/2014‚Äô
 select SalesOrderID, ShipDate from [Sales].[SalesOrderHeader]
 where OrderDate between '7/28/2002' and '7/29/2014'
 --2.Display only Products(Production schema) with a StandardCost
@@ -157,7 +157,7 @@ select * from Sales.Store
 select rowguid ,Name, SalesPersonID, Demographics into [store_Archive]
 from Sales.Store where 1=0
 
---12.Using union statement, retrieve the todayís date in different styles
+--12.Using union statement, retrieve the today‚Äôs date in different styles
 SELECT FORMAT(GETDATE(), 'MM/dd/yyyy') as styles
 UNION
 SELECT FORMAT(GETDATE(), 'yyyy-MM-dd')
