@@ -1,12 +1,12 @@
 --1.	Display all the data from the Employee table (HumanResources Schema) 
---As an XML document “Use XML Raw”. “Use Adventure works DB” 
+--As an XML document â€œUse XML Rawâ€. â€œUse Adventure works DBâ€ 
 --A)	Elements
 --B)	Attributes
 use AdventureWorks2022
 select * from HumanResources.Employee
 for xml raw ('emp'),elements,Root('root')
 
---1.	Display Each Department Name with its instructors. “Use ITI DB”
+--1.	Display Each Department Name with its instructors. â€œUse ITI DBâ€
 --A)	Use XML Auto
 use iti
 select Dept_Name,ins_name from Department d join Instructor i on d.Dept_Id=i.Dept_Id
@@ -62,8 +62,8 @@ as
 #student
 --2.Create a stored procedure that will check for the # of employees in the project p1 
 --if they are more than 3 print message to the user 
---“'The number of employees in the project p1 is 3 or more'” 
---if they are less display a message to the user “'The following employees work for the project p1'” 
+--â€œ'The number of employees in the project p1 is 3 or more'â€ 
+--if they are less display a message to the user â€œ'The following employees work for the project p1'â€ 
 --in addition to the first name and last name of each one. [Company DB] 
 use [SD32-Company]
 
@@ -131,13 +131,13 @@ select * from _audit
 
 
 --1.	Create a trigger to prevent anyone from inserting a new record in the Department table [ITI DB]
---“Print a message for user to tell him that he can’t insert a new record in that table”
+--â€œPrint a message for user to tell him that he canâ€™t insert a new record in that tableâ€
 use ITI
 Create or alter trigger company.t2 
 on Company.Department
 instead of insert 
 as
-		select SUSER_NAME()+' can’t insert a new record in that table'
+		select SUSER_NAME()+' canâ€™t insert a new record in that table'
 insert into Company.department values ('hrr','us')
 --2.Create a trigger that prevents the insertion Process for Employee table in March [Company DB].
 Create or alter trigger hr.t3 
@@ -165,7 +165,7 @@ BEGIN
 END
 
 alter table hr.employee add coldummy  int
------Create a trigger on student table after insert to add Row in Student Audit table (Server User Name , Date, Note) where note will be “[username] Insert New Row with Key=[Key Value] in table [table name]”
+-----Create a trigger on student table after insert to add Row in Student Audit table (Server User Name , Date, Note) where note will be â€œ[username] Insert New Row with Key=[Key Value] in table [table name]â€
 
 CREATE TABLE Student_Audit (
     UserName NVARCHAR(100),
@@ -188,7 +188,7 @@ select * from Student_Audit
 
 -- Create a trigger on student table instead of delete to add Row in Student Audit table
 --(Server User Name, Date, Note)
---where note will be“ try to delete Row with Key=[Key Value]”
+--where note will beâ€œ try to delete Row with Key=[Key Value]â€
 
 alter table student disable trigger t9,t78,t77,[trg_Student_Audit_Insert]
 CREATE or alter TRIGGER trg0
