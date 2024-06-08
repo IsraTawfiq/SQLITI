@@ -1,5 +1,5 @@
 --LAB-6
---Create the following database ìvisuallyî 
+--Create the following database ‚Äúvisually‚Äù 
 --Consists of 2 File Groups { SeconderyFG (has two data files) and ThirdFG (has two data files) } 
 --Database Name	SD32-Company
 --Location	(Default path)
@@ -78,9 +78,9 @@ ADD FILE
 use [SD32-Company]
 
 ---Create a new user data type named loc with the following Criteria:
---ï	nchar(2)
---ï	default:NY 
---ï	create a rule for this Datatype :values in (NY,DS,KW)) and associate it to the location column  
+--‚Ä¢	nchar(2)
+--‚Ä¢	default:NY 
+--‚Ä¢	create a rule for this Datatype :values in (NY,DS,KW)) and associate it to the location column  
 sp_addtype loc , 'nchar(2)'
 
 create rule r1 AS @loc IN ('NY', 'DS', 'KW')
@@ -109,7 +109,7 @@ select * from Department
 SET IDENTITY_INSERT department on;
 insert into department (DeptNo)values (4),(5),(6)
 SET IDENTITY_INSERT department off;
-truncate table department -- ·⁄»  ›ÌÂ« ﬂ Ì— Ê⁄«Ì“… Ì’›— «·ﬂÊ·„ » «⁄ «·œÌ»—  ‰„»— › ÂÌÃÌ Ì√‰”—  Ì»œ√ «‰Ì „‰ 1 
+truncate table department -- √°√ö√à√ä √ù√≠√•√á √ü√ä√≠√ë √¶√ö√á√≠√í√â √≠√ï√ù√ë √á√°√ü√¶√°√£ √à√ä√á√ö √á√°√è√≠√à√ë√ä √§√£√à√ë √ù √•√≠√å√≠ √≠√É√§√ì√ë√ä √≠√à√è√É√ä√á√§√≠ √£√§ 1 
 --CREATE Employee TABLE 
 
 CREATE TABLE Employee(
@@ -231,7 +231,7 @@ UPDATE [HR].[Employee]
 SET  [Deptnumber]= 4
 WHERE fName = 'israo';
 --7.Change the enter date for the projects for those employees who work in project p1 and belong 
---to department ënewí. The new date is 12.12.2007.
+--to department ‚Äònew‚Äô. The new date is 12.12.2007.
 select * from [dbo].[works_on]
 UPDATE works_on
 SET Enter_Date = '2007-12-12'
